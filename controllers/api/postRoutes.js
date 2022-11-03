@@ -4,7 +4,7 @@ const { Post } = require('../../models');
 // Creates new post
 router.post('/', async (req, res) => {
     try {
-      const newPost = await Project.create({
+      const newPost = await Post.create({
         ...req.body,
         user_id: req.session.user_id,
       });
@@ -26,7 +26,7 @@ router.post('/', async (req, res) => {
       });
   
       if (!postData) {
-        res.status(404).json({ message: 'No project found with this id!' });
+        res.status(404).json({ message: 'No post found with this id!' });
         return;
       }
   
@@ -35,3 +35,5 @@ router.post('/', async (req, res) => {
       res.status(500).json(err);
     }
   });
+
+  module.exports = router;
