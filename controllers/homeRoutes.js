@@ -26,5 +26,12 @@ router.get('/dashboard', async (req, res) => {
     res.render("dashboard", {...user})
 });
 
+router.get('/post/:id', async (req, res) => {
+    const postData = await Post.findByPk (req.params.id, {include:[{model:User}]})
+    const post = postData.get({plain: true})
+
+    res.render("post", {...post})
+});
+
 
 module.exports = router;
