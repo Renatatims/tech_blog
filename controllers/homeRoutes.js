@@ -8,11 +8,15 @@ router.get('/', async (req, res) => {
     res.render('homepage', {
         posts, 
         logged_in: req.session.logged_in});
-})
+});
 
 router.get('/login', async (req, res) => {
+    if (req.session.logged_in) {
+        res.redirect('/dashboard');
+        return;
+      }
     res.render("login")
-})
+});
 
 
 router.get('/dashboard', async (req, res) => {
@@ -20,7 +24,7 @@ router.get('/dashboard', async (req, res) => {
     const user = userData.get({plain:true})
     
     res.render("dashboard", {...user})
-})
+});
 
 
 module.exports = router;
