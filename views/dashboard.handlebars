@@ -1,0 +1,22 @@
+
+<div >
+    <h2>Welcome, {{name}}!</h2>
+<div>
+
+
+<div class="input-group input-group-sm mb-3">
+  <div class="input-group-prepend">
+    <span class="input-group-text" id="inputGroup-sizing-sm">Post Title</span>
+  </div>
+  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" id="post-name">
+</div>
+
+{{#if post.length}}
+<div>
+    <h2>
+        {{post_title}}
+    </h2>
+</div>
+ {{/if}}
+
+ <script src="./js/dashboard.js"></script>
