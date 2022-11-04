@@ -20,11 +20,19 @@ router.get('/login', async (req, res) => {
 
 
 router.get('/dashboard', async (req, res) => {
-    const userData = await User.findByPk (req.session.user_id, {include:[{model:Post}]})
-    const user = userData.get({plain:true})
-    
-    res.render("dashboard", {...user})
+    try{
+    const userData = await User.findByPk (req.session.user_id, {
+        attributes: {exclude: ['password']},
+        include:[{ model: Post}],
+    });
+    const user = userData.get({plain:true});
+       
+    res.render("dashboard", {...user, logged_in: true})
+}catch (err) {
+    res.status(500).json(err);
+}
 });
+
 
 router.get('/post/:id', async (req, res) => {
     const postData = await Post.findByPk (req.params.id, {include:[{model:User}]})
