@@ -1,19 +1,16 @@
 [{
     "post_title": "TitlePost1",
-    "post_date": 11,
     "post_content": "contentPost1",
     "user_id": 1
 
 },
 {
     "post_title": "TitlePost2",
-    "post_date": 11,
     "post_content": "contentPost2",
     "user_id": 2
 },
 {
     "post_title": "TitlePost3",
-    "post_date": 11,
     "post_content": "contentPost3",
     "user_id": 3
 }

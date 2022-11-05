@@ -1,19 +1,16 @@
 [
     {
         "comment_content": "Text 1",
-        "comment_date": 11,
         "user_id": 1,
         "post_id": 1
     },
     {
         "comment_content": "Text 2",
-        "comment_date": 11,
         "user_id": 2,
         "post_id": 2
     },
     {
         "comment_content": "Text 3",
-        "comment_date": 11,
         "user_id": 3,
         "post_id": 3
     }
