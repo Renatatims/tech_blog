@@ -3,19 +3,32 @@
     <h2>Welcome, {{username}}!</h2>
 <div>
 
+<div>
+  <h3> Create New Post </h3>
 
-<div class="input-group input-group-sm mb-3">
-  <div class="input-group-prepend">
-    <span class="input-group-text" id="inputGroup-sizing-sm">Post Title</span>
+<form class="new-post-form">
+  <div class="form-group">
+    <label for="exampleInputEmail1">Title</label>
+    <input class="form-control" id="titleNewPost" aria-describedby="emailHelp" placeholder="Enter Title">
   </div>
-  <input type="text" class="form-control" aria-label="Small" aria-describedby="inputGroup-sizing-sm" id="post-name">
+  <div class="form-group">
+    <label for="exampleInputPassword1">Content</label>
+    <input class="form-control" id="contentNewPost" placeholder="Content">
+  </div>
+  
+  <button type="submit" class="btn btn-primary" id="postBtn">Post</button>
+</form>
+
 </div>
 
-{{#if post.length}}
+{{#if posts.length}}
 <div>
-    <h2>
-        {{post_title}}
-    </h2>
+    <h3> Post History </h3>
+<div>
+     {{#each posts as |post| }}
+        {{> postData post}}
+    {{/each}}
+
 </div>
  {{/if}}
 
