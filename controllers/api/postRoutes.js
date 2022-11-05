@@ -4,12 +4,13 @@ const { Post } = require('../../models');
 // Creates new post
 router.post('/', async (req, res) => {
     try {
-      const newPost = await Post.create({
-        ...req.body,
+      const createNewPost = await Post.create({
+        post_title: req.body.post_title,
+        post_content: req.body.post_content,
         user_id: req.session.user_id,
       });
   
-      res.status(200).json(newPost);
+      res.status(200).json(createNewPost);
     } catch (err) {
       res.status(400).json(err);
     }
