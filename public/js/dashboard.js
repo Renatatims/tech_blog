@@ -2,14 +2,14 @@
 const newPost = async (event) => {
     event.preventDefault();
   
-    const name = document.querySelector('#titleNewPost').value.trim();
-    const postDescription = document.querySelector('#contentNewPost').value.trim();
+    const post_title = document.querySelector('#titleNewPost').value.trim();
+    const post_content = document.querySelector('#contentNewPost').value.trim();
 
   
-    if (name && postDescription) {
+    if (post_title && post_content) {
       const response = await fetch(`/api/posts`, {
         method: 'POST',
-        body: JSON.stringify({ name, postDescription }),
+        body: JSON.stringify({ post_title, post_content }),
         headers: {
           'Content-Type': 'application/json',
         },
